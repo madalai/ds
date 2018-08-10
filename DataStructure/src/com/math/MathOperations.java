@@ -29,13 +29,14 @@ public class MathOperations {
 	
 	public static int lcm(int arr[]){
 		
-		int gcd = gcd(arr);
-		int mul = 1;
-		for(int i = 0 ; i<arr.length ;i++){
-			mul = mul*arr[i];
-		}
-		
-		return mul/gcd;
+		 int mul = 1;
+	        int gcd = gcd(arr);
+	        for(int i = 0 ; i <arr.length ; i++){
+	            mul = (mul * arr[i])/gcd;
+	        }
+	        
+	        
+	        return mul*gcd;
 	}
 	public static void main(String[] args) {
 		System.out.println(MathOperations.lcm(12,15));
