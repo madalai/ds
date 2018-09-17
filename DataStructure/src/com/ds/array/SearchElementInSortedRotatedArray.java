@@ -1,5 +1,7 @@
 package com.ds.array;
 
+import java.util.List;
+
 /**
  * An element in a sorted array can be found in O(log n) time via binary search.
  * But suppose we rotate an ascending order sorted array at some pivot unknown
@@ -9,50 +11,46 @@ package com.ds.array;
  * @author madalai
  *
  */
-public class SearchElementInSortedRotatedArray {
-	
-	public static int findNoOfTimesArrayRotated(int arr[], int m, int n){
-		int pivot = findPivot(arr, m, n);
-		return -1;
-	}
-
-	private static int findPivot(int[] arr, int m, int n) {
-		if(m > n){
-			return -1;
-		}
-		if(m == n){
-			return m;
-		}
-		
-		int mid = (m+n)/2;
-		
-		
-		return 0;
-		//return mid;
-	}
-
-	public static int find(int arr[], int m, int n, int key) {
-		int mid = (m + n) / 2;
-		while (m <= n) {
-			if (arr[mid] == key) {
-				return mid;
-			} else {
-				if ((arr[mid] > key) && (arr[m] < key)) {
-
-					return find(arr, m, mid - 1, key);
-				}
-
-				else {
-					return find(arr, mid + 1, n, key);
-				}
-			}
-		}
-
-		return -1;
-	}
-	
-	public static void main(String[] args) {
-		int arr[] = {3,4,5,7,1,2};
-		System.out.println(find(arr, 0, arr.length-1, 4));
-	}
+public class SearchElementInSortedRotatedArray { public int search(final List<Integer> list, int key) {
+    return helper(list,0,list.size()-1,key);
+ }
+ 
+ public int helper(List<Integer> list,int low,int high,int key){
+     
+     while(low <= high){
+         int mid = low + (high -low)/2;
+         if(list.get(mid) > list.get(0)){
+             //This means mid is in left part of the pivot
+             if(key == list.get(mid)){
+                 return mid;
+             }
+             if(list.get(low) <= key && list.get(mid)> key){
+                 high = mid-1;
+             }
+             else{
+                 low = mid +1;
+             }
+         }
+         else{
+             //This means mid is in right part of the pivot
+             if(key == list.get(mid)){
+                 return mid;
+             }
+             if(list.get(mid) < key && list.get(high) >= key){
+                 low = mid+1 ;
+             }
+             else{
+                 high = mid-1;
+             }
+         }
+         
+     }
+     if(list.get(low) == key){
+         return low;
+     }
+     return -1;
+  
+     
+   
+ }
 }
