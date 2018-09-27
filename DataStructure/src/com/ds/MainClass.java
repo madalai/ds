@@ -1,46 +1,49 @@
 package com.ds;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
-
 public class MainClass {
+	static Set<Integer> set = new HashSet<>();
+	static int range = 100000000;
+	
 
-	public static void main(String[] args) throws IOException {
-		System.out.println("Jay Jagannath");
-		
-		Set<String> list1 = new HashSet<String>();
-		Set<String> list2 = new HashSet<String>();
-		
-		BufferedReader reader1 = new BufferedReader(new FileReader("C:\\Users\\madalai.ORADEV\\Desktop\\File1.txt"));
-		BufferedReader reader2 = new BufferedReader(new FileReader("C:\\Users\\madalai.ORADEV\\Desktop\\File2.txt"));
-		
-		    
-		 String contentLine1 = reader1.readLine();
-		   while (contentLine1 != null) {
-			   list1.add(contentLine1);
-		      contentLine1 = reader1.readLine();
-		   }
-		   
-		   String contentLine2 = reader2.readLine();
-		   while (contentLine2 != null) {
-			   list2.add(contentLine2);
-		      contentLine2 = reader2.readLine();
-		   }
-		   
-		   System.out.println(list1.containsAll(list2));
-		   
-		   for(String s:list2){
-			   if(!list1.contains(s)){
-				   System.out.println(s);
-			   }
-		   }
+	public static void main(String[] args) throws Exception {
+		System.out.println(convertToTitle(53));
+
 	}
+
+	public static String convertToTitle(int n) {
+		int fac = 26;
+		String s = "";
+		while (n > 0) {
+			n--;
+			s = (char) (n % 26 + 'A') + s;
+			n = n / fac;
+		}
+		return s;
+	}
+
+	static boolean isPower(int n) {
+
+		if (set.contains(n))
+			return true;
+		for (int i = 2; i <= n / i; i++) {
+			int pow = i;
+			while (pow <= n) {
+				pow = pow * i;
+				set.add(pow);
+				if (pow == n) {
+					return true;
+				}
+			}
+
+		}
+		return false;
+	}
+
 }

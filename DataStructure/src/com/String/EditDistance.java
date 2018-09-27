@@ -16,15 +16,15 @@ public class EditDistance {
 
 		public int minDistance(String word1, String word2) {
 
-			return solveDp(word1,word2);
-		/*	if (word1.isEmpty() || word2.isEmpty()) {
+			//return solveDp(word1,word2);
+			if (word1.isEmpty() || word2.isEmpty()) {
 				return Math.max(word1.length(), word2.length());
 			}
 			int i = word1.length() - 1;
 			int j = word2.length() - 1;
 			helper(word1, word2, i, j, 0);
 
-			return min;*/
+			return min;
 
 		}
 

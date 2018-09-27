@@ -54,7 +54,7 @@ public class ValidParanthesisLength {
 	}
 
 	public static void main(String[] args) {
-		int n = new ValidParanthesisLength().longestValidParentheses(")()())");
+		int n = new ValidParanthesisLength().longestValidParentheses(")()())((()))(((");
 		System.out.println(n);
 	}
 

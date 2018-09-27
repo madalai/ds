@@ -42,7 +42,7 @@ public class MathOperations {
        return temp;
 	}
 	public static void main(String[] args) {
-		System.out.println(MathOperations.lcm(12,15));
-		System.out.println(MathOperations.gcd(9, 15));
+		//System.out.println(MathOperations.lcm(12,15));
+		System.out.println(MathOperations.gcd(10, 15));
 	}
 }
