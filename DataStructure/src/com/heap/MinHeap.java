@@ -1,9 +1,9 @@
 package com.heap;
 
-public class MinHeap {
+public class MinHeap1 {
 	private int arr[];
 	int pos;
-	public MinHeap(int size){
+	public MinHeap1(int size){
 		arr = new int[size];
 		pos = 0;
 	}
