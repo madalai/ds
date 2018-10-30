@@ -78,10 +78,10 @@ public class MaxXORPair {
 
 
 }
-class TrieNode{
+class TrieNode1{
 	TrieNode left;
 	TrieNode right;
-    public TrieNode(){
+    public TrieNode1(){
         
     }
 }
