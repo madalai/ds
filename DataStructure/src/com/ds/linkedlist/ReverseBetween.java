@@ -11,7 +11,49 @@ public class ReverseBetween {
 		System.out.println(head1);
 		
 	}
-    public ListNode reverseBetween(ListNode head, int m, int n) {
+	   public ListNode reverseBetween(ListNode head, int m, int n) {
+		      
+	        ListNode mNode = null;
+	        ListNode mPrev = null;
+	   
+	        int count = 1;
+	        ListNode dummy = new ListNode(1);
+	        dummy.next = head;
+	        ListNode curr = head;
+	        ListNode prev = dummy;
+	        ListNode tmp = null;
+	        while(count <= n){
+	            if(count < m){
+	                count++;
+	                prev= curr;
+	                curr = curr.next;
+	                continue;
+	            }
+	            if(count == m){
+	                mPrev = prev;
+	                mNode = curr;
+	                count++;
+	                prev= curr;
+	                curr = curr.next;
+	                continue;
+	            }
+	            
+	            tmp = curr.next;
+	            curr.next = prev;
+	            prev = curr;
+	            curr = tmp;
+	            count++;
+	        
+	            
+	        }
+	        mPrev.next = prev;
+	        mNode.next = tmp;
+	        
+	        return dummy.next;
+	        
+	        
+	    }
+   /* public ListNode reverseBetween(ListNode head, int m, int n) {
         
         if(head == null || head.next == null){
             return head;
@@ -46,6 +88,6 @@ public class ReverseBetween {
        
         return head;
         
-    }
+    }*/
 }
 

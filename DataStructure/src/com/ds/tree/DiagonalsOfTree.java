@@ -13,8 +13,7 @@ import java.util.Map;
  */
 public class DiagonalsOfTree {
 
-	public static Map<Integer, List<Integer>> printDiagonal(TreeNode11 root, Map<Integer, List<Integer>> map,
-			int dist) {
+	public static Map<Integer, List<Integer>> printDiagonal(TreeNode11 root, Map<Integer, List<Integer>> map,int dist) {
 		if (root == null)
 			return map;
 		if (map == null) {
